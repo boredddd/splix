@@ -21,21 +21,6 @@ local utility = {}
 --
 local check_exploit = (identifyexecutor and identifyexecutor()) or (syn and "Synapse")
 
-local function SendNotification(Title, Description, Amount)
-    game.StarterGui:SetCore("SendNotification", {
-        Title = Title or "Aisar UI";
-        Text = Description or "";
-        Duration = Amount;
-        Button1 = "Ignore";
-    })
-end
-
-if check_exploit then
-    SendNotification("Aisar UI", "Aisar UI stays unpatchable..", 3)
-else
-	SendNotification('Aisar UI','Aisar UI may not support your executor.',3)
-end
-
 local plrs = game:GetService("Players")
 local cre = gethui and gethui() or game:GetService("CoreGui")
 local rs = game:GetService("RunService")
