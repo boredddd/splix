@@ -19,9 +19,10 @@ local loaders = {}
 --
 local utility = {}
 --
-local check_exploit = (syn and "Synapse") or (KRNL_LOADED and "Krnl") or (isourclosure and "ScriptWare") or nil
+local check_exploit = (identifyexecutor and identifyexecutor()) or (syn and "Synapse")
+
 local plrs = game:GetService("Players")
-local cre = game:GetService("CoreGui")
+local cre = gethui and gethui() or game:GetService("CoreGui")
 local rs = game:GetService("RunService")
 local ts = game:GetService("TweenService") 
 local uis = game:GetService("UserInputService") 
@@ -4598,4 +4599,5 @@ function sections:configloader(props)
 	setmetatable(configloader, configloaders)
 	return configloader 
 end
+
 return library
